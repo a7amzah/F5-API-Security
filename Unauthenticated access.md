@@ -44,4 +44,7 @@ curl -X POST http://crapi.local/identity/api/auth/login -d '{"email":"user2@ku.s
 $ curl http://crapi.local/workshop/api/shop/orders/5 -H "Authorization: Bearer $new_token"
 ```
 ![[Pasted image 20260906145155.png]]
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
