@@ -10,7 +10,7 @@ It contains real-world vulnerabilities aligned with the OWASP API Top 10, like:
 
 ## Setup
 - first change the web service template "/crAPI/deploy/helm/templates/web/ingress.yaml" to **NodePort**
-	![[Pasted image 20260825161206.png]]
+<img width="1176" height="698" alt="image" src="https://github.com/user-attachments/assets/d20ac58f-9bb3-472b-bacb-1309adcbd2ba" />
 - use helm to install crAPI components in crapi namespace 
 ```zsh unfold ln:false unwrap 
  helm install --namespace crapi crapi . --values values.yaml
