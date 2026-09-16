@@ -1,16 +1,26 @@
 ## Overview:
 After Logging into the application 'crAPI' anyone can access the vehicle report of another user if they only have the Vehicle ID.
 
-## Issue: Access Another Users Vehicle report
-each customer can view his own vehicle report via  <font color="#ffc000">/vehicle-service-dashboard?VIN=8PK1LM7PB5YV9EEG0</font>
-the problem if any other user changes VIN value to the value of another user he/she can access 
-- Below VIN of user "Ahmed"
-![[Pasted image 20260827152737.png|901]]
-- from another account 'user' 
-![[Pasted image 20260827152527.png|903]]
+### Setup:
+Testing with two hostnames 
+	crapi.local | Application protected by WAF
+	10.1.10.104 | Accessing application direct 
 
-when user2 changed the **vin** to ahmed's vin, he can access his account.
-![[Pasted image 20260827161400.png]]
+### Users:
+Legit User:
+	legit-user@example.com/F5@Pass50
+Malicious User:
+	malicious@example.com/F5@Pass50 
+## Issue: Access Another Users Vehicle report
+each customer can view his/her own vehicle report via  `/vehicle-service-dashboard?VIN=<User Vehicle ID>
+If another user "e.g Attacker" can alter VIN value to the value of another user to access his/her vehicle report.  
+- Below VIN of user "Legit User"
+![](../../../All%20Images/Pasted%20image%2020260916163847.png)
+- from another account 'Malicious' who has no reports 
+![1171](../../../All%20Images/Pasted%20image%2020260916164258.png)
+	
+Malicious user can access Legit user car's report by changing the **vin** to `1M742JK0ZJB9J639X`
+![](../../../All%20Images/Pasted%20image%2020260916164442.png)
 
 ## WAF Mitigation - Dynamic Parameter Tampering
 - Reviewing the traffic, we see the parameter is set in the response of uri `/identity/api/v2/vehicle/vehicles`
@@ -27,9 +37,6 @@ when user2 changed the **vin** to ahmed's vin, he can access his account.
 
 ### Validation
 - access user2 vehicle portal
-![[Pasted image 20260827162516.png]]
-
 - change VIN to the other user's value 
-![[Pasted image 20260827162734.png]]
-
-![[Pasted image 20260827162947.png]]
+![](../../../All%20Images/Pasted%20image%2020260916164611.png)
+![916](../../../All%20Images/Pasted%20image%2020260916164809.png)
