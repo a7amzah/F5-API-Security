@@ -1,10 +1,12 @@
 ## Overview:
-After Logging into the application 'crAPI' anyone can access the vehicle report of another user if they only have the Vehicle ID.
+After Logging into the application `crAPI` anyone can access the vehicle report of another user if they only have the Vehicle ID.
 
 ### Setup:
-Testing with two hostnames 
-	crapi.local | Application protected by WAF
-	10.1.10.104 | Accessing application direct 
+Testing with two hostnames:
+
+**crapi.local** >> Application protected by WAF
+
+**10.1.10.104** >> Accessing application direct 
 
 ### Users:
 **Legit User:**
@@ -14,7 +16,7 @@ legit-user@example.com/F5@Pass50
 malicious@example.com/F5@Pass50 
 
 ## Issue: Access Another Users Vehicle report
-each customer can view his/her own vehicle report via  "/vehicle-service-dashboard?VIN=<User Vehicle ID>"
+each customer can view his/her own vehicle report via  `/vehicle-service-dashboard?VIN='\<User Vehicle ID\>`
 
 If another user "e.g Attacker" can alter VIN value to the value of another user to access his/her vehicle report.  
 - Below VIN of user "Legit User"
