@@ -19,7 +19,7 @@ legit-user@example.com/F5@Pass50
 ## Data Exposure To CrAPI without WAF
 - Login in to crAPI with username and password and get access token
 ```zsh unfold ln:false unwrap title:"Command"
-$ export token=$(curl -X POST http://crapi.local/identity/api/auth/login -d '{"email":"legit-user@example.com","password":"F5@Pass50"}' -H "Content-Type: application/json"  -s | jq -r '.token')
+$ export token=$(curl -X POST http://10.1.10.104/identity/api/auth/login -d '{"email":"legit-user@example.com","password":"F5@Pass50"}' -H "Content-Type: application/json"  -s | jq -r '.token')
 ```
 
 - Exposed Data
