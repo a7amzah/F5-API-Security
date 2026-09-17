@@ -1,4 +1,7 @@
-## Overview:
+**OWASP API #7 — Server-Side Request Forgery (SSRF)**
+>> SSRF happens when an attacker tricks a server into making a request to an unintended or malicious location. The attacker sends a crafted URL, and the vulnerable server performs that request — possibly to internal systems or sensitive endpoints that the attacker should never be able to reach.
+
+## Demo Overview:
 Using SSRF vulnerability to manipulate the requests made by a web application to access resources on internal systems "10.1.10.105/admin" that we should not have access to.
 
 ### Setup:
