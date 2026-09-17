@@ -1,6 +1,8 @@
-**Fixing API#4 — Unrestricted Resource Consumption**
+**Fixing OWASP API#4 — Unrestricted Resource Consumption**
 >> Unrestricted Resource Consumption (previously called Lack of Resources and Rate Limiting) happens when an API doesn’t properly limit how much data, time, memory, or requests a user can consume — allowing attackers to overload or abuse the system.
 
+**Fixing OWASP API Top 10 #6 — Unrestricted Access to Sensitive Business Flows**
+>This vulnerability happens when an API allows abuse of legitimate business functions — meaning the API works as designed, but an attacker can use it in a way that wasn’t intended to cause harm
 
 ## Demo Overview
 Observing that the OTP endpoint `POST /identity/api/v2/auth/check-otp` is not protected by rate limiting.
