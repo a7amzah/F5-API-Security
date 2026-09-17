@@ -2,8 +2,10 @@
 Discovered that orders endpoint "shop/order" accepts any traffic without authentication 
 ### Setup:
 Testing with two hostnames 
-	**crapi.local** |  crAPI Application protected by WAF
-	**10.1.10.104** | crAPI Application Without WAF
+
+- **crapi.local** |  crAPI Application protected by WAF
+
+- **10.1.10.104** | crAPI Application Without WAF
 
 ### Users:
 **Malicious User:** malicious@example.com/F5@Pass50 
