@@ -1,12 +1,18 @@
-## Overview:
+**Fixing OWASP API #1 — Broken Object Level Authorization (BOLA)**
+> BOLA happens when an app or API lets you access or change something you shouldn’t be allowed to — like seeing another user’s private data or performing actions on someone else’s account.
+
+## Demo Overview:
 Discovered that orders endpoint "shop/order" accepts any traffic without authentication 
+
 ### Setup:
 Testing with two hostnames 
-	**crapi.local** |  crAPI Application protected by WAF
-	**10.1.10.104** | crAPI Application Without WAF
+**crapi.local** |  crAPI Application protected by WAF
+
+**10.1.10.104** | crAPI Application Without WAF
 
 ### Users:
-**Malicious User:** malicious@example.com/F5@Pass50 
+**Malicious User:** malicious@example.com/F5@Pass50
+
 ## Without WAF/Access Profile
 - any user can access the order of someone else, revealing order details, and user and payment information. 
 ```zsh unfold ln:false unwrap title:"Command"
