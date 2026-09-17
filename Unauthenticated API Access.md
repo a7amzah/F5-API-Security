@@ -27,7 +27,8 @@ curl http://10.1.10.104/workshop/api/shop/orders/5 -s | jq
 $ curl http://crapi.local/workshop/api/shop/orders/5 -s | jq
 ```
 <img width="1156" height="210" alt="image" src="https://github.com/user-attachments/assets/7bd836ff-6857-4db5-8720-e0c77bd35c01" />
-<img width="1156" height="210" alt="image" src="https://github.com/user-attachments/assets/b338f9a5-f10b-4498-a7f4-d049a9e04139" />
+<img width="1856" height="555" alt="image" src="https://github.com/user-attachments/assets/91f3211b-7147-45a4-955d-66179d4d5e4c" />
+
 
 ### With Expired Token
 - Use an expired token 
@@ -44,7 +45,7 @@ $ curl http://crapi.local/workshop/api/shop/orders/5 -H "Authorization: Bearer $
 
 #### Access with Valid New Token
 ```zsh unfold ln:false unwrap title:"Command"
-export new_token=$(curl -X POST http://10.1.10.104/identity/api/auth/login -d '{"email":"malicious@example.com","password":"F5@Pass50"}' -H "Content-Type: application/json"  -s | jq -r '.token')
+export new_token=$(curl -X POST http://crapi.local/identity/api/auth/login -d '{"email":"malicious@example.com","password":"F5@Pass50"}' -H "Content-Type: application/json"  -s | jq -r '.token')
 ```
 <img width="2479" height="224" alt="image" src="https://github.com/user-attachments/assets/21253530-daa8-4c23-93f3-17ece4f3a904" />
 <img width="1765" height="727" alt="image" src="https://github.com/user-attachments/assets/4022f1f3-ca35-4af0-8700-f10c672a92fd" />
