@@ -1,13 +1,18 @@
-## Overview
+**Fixing API#8 - Miss configuration - CORS**
+>> Security Misconfiguration occurs when API servers, systems, or components are not properly set up, hardened, or maintained — leaving gaps that attackers can exploit.
+
+## Demo Overview
 crAPI orders endpoint is accepting any origin.
-According to the Same Origin Policy, a web page or a script running on a<font color="#ffc000"> web page can only access content (like <u>XMLHttpRequest</u>) from the same origin as the web page</font>, where “*origin*” is defined as the combination of the protocol (HTTP or HTTPS), the hostname, and the port number.
+According to the Same Origin Policy, a web page or a script running on a<font color="#ffc000"> web page can only access content (like <u>`XMLHttpRequest`</u>) from the same origin as the web page</font>, where “*origin*” is defined as the combination of the protocol (HTTP or HTTPS), the hostname, and the port number.
 however by simulating from `app.external ` we can access `orders`  endpoint <font color="#ffc000">through Javascript using an XMLHttpRequest</font>. 
-### Setup:
-Testing with two hostnames 
-	**crapi.local** |  crAPI Application protected by WAF
-	**10.1.10.104** | crAPI Application Without WAF
-	**app.external** | simulating a request from different origin through XMLHttpRequest
-	<img width="1572" height="1198" alt="image" src="https://github.com/user-attachments/assets/76b7f853-e5df-4388-afc9-3d1e950e171d" />
+### Setup: 
+**crapi.local** |  crAPI Application protected by WAF
+
+**10.1.10.104** | crAPI Application Without WAF
+	
+**app.external** | simulating a request from different origin through XMLHttpRequest
+	
+<img width="1572" height="1198" alt="image" src="https://github.com/user-attachments/assets/76b7f853-e5df-4388-afc9-3d1e950e171d" />
 
 ## CORS without WAF
 - crAPI "`shop/orders`" endpoint is vulnerable to CORS misconfiguration as the service is accepting any origin
