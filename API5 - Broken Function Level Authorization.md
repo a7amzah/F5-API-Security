@@ -15,8 +15,9 @@ Testing with two hostnames
 
 observing the API calls the video has assigned `id=52`, confirm the file, and it's name
 ```zsh unfold ln:false unwrap title:"Command"
+##login and get access token
 export token=$(curl -X POST http://10.1.10.104/identity/api/auth/login -d '{"email":"malicious@example.com","password":"F5@Pass50"}' -H "Content-Type: application/json"  -s | jq -r '.token')
-
+##get video using access token
 curl http://10.1.10.104/identity/api/v2/user/videos/52  -H "Authorization: Bearer $token"
 ```
 <img width="1567" height="305" alt="image" src="https://github.com/user-attachments/assets/c340029b-2890-4e1c-8b28-54a3f3d24bf1" />
