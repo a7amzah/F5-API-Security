@@ -1,17 +1,15 @@
-## Overview:
+
+**Fixing  OWASP API #3 — Broken Object Property Level Authorization (BOPLA)**
+>> It’s when an API lets you see or change more data than you should be able to — either by accident or because the developer didn’t limit it properly.
+
+## Demo Overview:
 It’s when an API lets you see or change more data than you should be able to — either by accident or because the developer didn’t limit it properly
-
-**This combines two old categories:**
-
-- **Mass Assignment** — changing properties you shouldn’t be able to change (e.g., setting your account from “free” to “premium” in a hidden field).
-- **Excessive Data Exposure** — the API sends too much data (extra fields with sensitive info) even if the UI only shows part of it.
-
-Here, I'll simulate Excessive Data Exposure   
 
 ### Setup:
 Testing with two hostnames 
-	crapi.local |  crAPI Application protected by WAF
-	10.1.10.104 | crAPI Application Without WAF
+**crapi.local** |  crAPI Application protected by WAF
+
+**10.1.10.104** | crAPI Application Without WAF
 
 ### Users:
 legit-user@example.com/F5@Pass50
