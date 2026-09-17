@@ -7,12 +7,15 @@ Testing with two hostnames
 	10.1.10.104 | Accessing application direct 
 
 ### Users:
-Legit User:
-	legit-user@example.com/F5@Pass50
-Malicious User:
-	malicious@example.com/F5@Pass50 
+**Legit User:**
+legit-user@example.com/F5@Pass50
+	
+**Malicious User:**
+malicious@example.com/F5@Pass50 
+
 ## Issue: Access Another Users Vehicle report
-each customer can view his/her own vehicle report via  `/vehicle-service-dashboard?VIN=<User Vehicle ID>
+each customer can view his/her own vehicle report via  "/vehicle-service-dashboard?VIN=<User Vehicle ID>"
+
 If another user "e.g Attacker" can alter VIN value to the value of another user to access his/her vehicle report.  
 - Below VIN of user "Legit User"
 <img width="2278" height="1219" alt="image" src="https://github.com/user-attachments/assets/afe11e83-ada3-46f2-8d38-e3f6a4a970eb" />
