@@ -1,3 +1,10 @@
+**OWASP API Top 10 #5 — Broken Function Level Authorization**
+> This weakness happens when an API doesn’t properly check what actions (functions) a user is allowed to perform.
+
+**OWASP API #3 — Broken Object Property Level Authorization (BOPLA)**
+> It’s when an API lets you see or change more data than you should be able to — either by accident or because the developer didn’t limit it properly.
+> Focusing here on Mass Assignment part of this vulnerability
+
 
 ## Demo Overview
 Find an admin endpoint to delete videos of someone else.
