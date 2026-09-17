@@ -1,10 +1,14 @@
-## Overview
+**Fixing API#4 — Unrestricted Resource Consumption**
+>> Unrestricted Resource Consumption (previously called Lack of Resources and Rate Limiting) happens when an API doesn’t properly limit how much data, time, memory, or requests a user can consume — allowing attackers to overload or abuse the system.
+
+
+## Demo Overview
 Observing that the OTP endpoint `POST /identity/api/v2/auth/check-otp` is not protected by rate limiting.
 
-### Setup:
-Testing with two hostnames 
-	crapi.local | Application protected by WAF
-	10.1.10.104 | Accessing application direct 
+### Setup: 
+**crapi.local** | Application protected by WAF
+
+**10.1.10.104** | Accessing application direct 
 
 ### Users:
 Malicious User:
