@@ -1,7 +1,8 @@
-Generally, there is a single endpoint that processes all requests, as in GraphQL APIs, where one endpoint manages numerous queries and mutations.
+## Demo Overview:
+Using WAF to block GraphQL introspection queiries 
+
+### Setup:
+graphql endpoint 
+
+**graphql.local/graphql** |  Generic University Application simulating without and With WAF
  
-```python unfold ln:false unwrap title:"Command"
-$ curl -s https://graphql.local/graphql --tls-max 1.2 -k    
-```
-![](../../../All%20Images/Pasted%20image%2020260920141122.png)
-An empty json result indicates that a GraphQL <font color="#ffc000">endpoint exists</font>.
