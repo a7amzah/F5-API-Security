@@ -1,6 +1,6 @@
 Generally, there is a single endpoint that processes all requests, as in GraphQL APIs, where one endpoint manages numerous queries and mutations.
  
-```zsh unfold ln:false unwrap title:"Command"
+```python unfold ln:false unwrap title:"Command"
 $ curl -s https://graphql.local/graphql --tls-max 1.2 -k    
 ```
 ![](../../../All%20Images/Pasted%20image%2020260920141122.png)
