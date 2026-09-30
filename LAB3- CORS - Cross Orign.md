@@ -32,6 +32,7 @@ With `access-control-allow-origin: *` CORS header, we are simply disabling the i
 curl  http://10.1.10.104/ -H "Origin: null" --head
 ```
 <img width="808" height="344" alt="image" src="https://github.com/user-attachments/assets/fe92b906-17dc-4c21-b524-9f6811990988" />
+
 No access control header in the response.
 
 and as expected the request was blocked by browser.
