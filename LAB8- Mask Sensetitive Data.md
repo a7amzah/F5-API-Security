@@ -23,7 +23,7 @@ $ export token=$(curl -X POST http://10.1.10.104/identity/api/auth/login -d '{"e
 - Exposed Data
 We discovered that any authenticated user can reveal the data of other users by reviewing their posts
 ```python unfold ln:false unwrap title:"code"
-curl  http://10.1.10.104/community/api/v2/community/posts/urvi4epTExTgLepeBeeNR9 -H "Authorization: Bearer $token" -H "Content-Type: application/json"
+curl  http://10.1.10.104/community/api/v2/community/posts/A5VnrSfxByWAkzighwhvFU  -H "Authorization: Bearer $token" -H "Content-Type: application/json"
 ```
 <img width="2484" height="351" alt="image" src="https://github.com/user-attachments/assets/903afdb5-8d05-4446-aaa6-59a1c9487af1" />
 
@@ -37,7 +37,7 @@ enforce WAF to mask `email addresses` and `vehicle id` in the response.
 
 - Accessing posts we see that emails and vehicle id are masked. 
 ```python unfold ln:false unwrap title:"code"
-curl  http://crapi.local/community/api/v2/community/posts/urvi4epTExTgLepeBeeNR9 -H "Authorization: Bearer $token" -H "Content-Type: application/json"
+curl  http://crapi.local/community/api/v2/community/posts/A5VnrSfxByWAkzighwhvFU  -H "Authorization: Bearer $token" -H "Content-Type: application/json"
 ```
 <img width="2499" height="295" alt="image" src="https://github.com/user-attachments/assets/80ef4f40-574a-469f-95a0-26e93e787c33" />
 
